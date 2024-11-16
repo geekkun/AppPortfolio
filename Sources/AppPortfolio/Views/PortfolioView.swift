@@ -13,12 +13,15 @@ public struct PortfolioView: View {
     private let onAppClick: ((String) -> Void)?
     
     public init(
-        currentApps: [PortfolioApp],
-        upcomingApps: [PortfolioApp] = [],
+        currentApps: [PortfolioApp]? = nil,
+        upcomingApps: [PortfolioApp]? = nil,
         onAppClick: ((String) -> Void)? = nil
     ) {
-        self.currentApps = currentApps
-        self.upcomingApps = upcomingApps
+        self.currentApps = (currentApps ?? AppCatalog.myApps)
+            .filter { app in
+                app.bundleId != Bundle.main.bundleIdentifier
+            }
+        self.upcomingApps = upcomingApps ?? AppCatalog.upcomingApps
         self.onAppClick = onAppClick
     }
     
@@ -48,6 +51,13 @@ public struct PortfolioView: View {
             }
         }
     }
+}
+
+#Preview("Portfolio - Default") {
+    List {
+        PortfolioView(upcomingApps: [])
+    }
+    .listStyle(.insetGrouped)
 }
 
 #Preview("Portfolio - Full") {
@@ -91,6 +101,13 @@ public struct PortfolioView: View {
             currentApps: [],
             upcomingApps: []
         )
+    }
+    .listStyle(.insetGrouped)
+}
+
+#Preview("Portfolio - Default") {
+    List {
+        PortfolioView()
     }
     .listStyle(.insetGrouped)
 }

@@ -12,11 +12,21 @@ struct AppRowView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(app.iconName)
-                .resizable()
-                .frame(width: 52, height: 52)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .shadow(radius: 2)
+            Group {
+                if let bundledImage = UIImage(named: app.iconName, in: .portfolio, with: nil) {
+                    Image(uiImage: bundledImage)
+                        .resizable()
+                } else if let _ = UIImage(named: app.iconName) {
+                    Image(app.iconName)
+                        .resizable()
+                } else {
+                    Image(systemName: "sparkles")
+                        .resizable()
+                }
+            }
+            .frame(width: 52, height: 52)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .shadow(radius: 2)
             
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 4) {

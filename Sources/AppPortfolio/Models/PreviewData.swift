@@ -18,7 +18,7 @@ enum PreviewData {
         PortfolioApp(
             name: "Awesome App",
             iconName: "app-icon",
-            description: "A brief, compelling description that fits in two lines max even when it's quite long.",
+            description: "A brief, compelling description that fits in two lines max.",
             appStoreId: "6475...",
             isNew: false,
             isDevelopment: false

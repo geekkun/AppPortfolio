@@ -13,6 +13,7 @@ public struct PortfolioApp: Identifiable, Hashable {
     public let iconName: String
     public let description: String
     public let appStoreId: String?
+    public let bundleId: String?
     public let isNew: Bool
     public let isDevelopment: Bool
     
@@ -26,6 +27,7 @@ public struct PortfolioApp: Identifiable, Hashable {
         iconName: String,
         description: String,
         appStoreId: String?,
+        bundleId: String? = nil,
         isNew: Bool = false,
         isDevelopment: Bool = false
     ) {
@@ -33,6 +35,7 @@ public struct PortfolioApp: Identifiable, Hashable {
         self.iconName = iconName
         self.description = description
         self.appStoreId = appStoreId
+        self.bundleId = bundleId
         self.isNew = isNew
         self.isDevelopment = isDevelopment
     }

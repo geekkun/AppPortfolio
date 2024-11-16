@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Badge: View {
-    let text: String
+    let text: LocalizedStringKey
     let color: Color
     
     var body: some View {

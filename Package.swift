@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "AppPortfolio",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v16)
     ],
@@ -14,7 +15,11 @@ let package = Package(
     targets: [
         .target(
             name: "AppPortfolio",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .process("Resources")
+            ]
+        ),
         .testTarget(
             name: "AppPortfolioTests",
             dependencies: ["AppPortfolio"]),

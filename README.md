@@ -2,14 +2,13 @@
 
 A lightweight iOS component to showcase your app portfolio in a beautiful, native UI.
 
-<img src="Images/demo.png" width="300">
+<!--<img src="Images/demo.png" width="300">-->
 
 ## Features
 - Native SwiftUI implementation
 - Customizable app cards with icons and descriptions
 - Support for both released and upcoming apps
 - Built-in analytics hooks
-- Automatic "NEW" badge based on release date
 - Dark mode support
 - Fully customizable appearance
 
