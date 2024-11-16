@@ -31,6 +31,8 @@ public struct PortfolioView: View {
                 Section("My Apps") {
                     ForEach(currentApps, id: \.id) { app in
                         Button {
+                            onAppClick?(app.name)
+                            
                             if let url = app.appStoreURL {
                                 UIApplication.shared.open(url)
                             }
@@ -45,7 +47,12 @@ public struct PortfolioView: View {
             if !upcomingApps.isEmpty {
                 Section("Coming Soon") {
                     ForEach(upcomingApps) { app in
-                        AppRowView(app: app)
+                        Button {
+                            onAppClick?(app.name)
+                        } label: {
+                            AppRowView(app: app)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
