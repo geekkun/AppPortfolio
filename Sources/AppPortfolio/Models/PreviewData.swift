@@ -10,7 +10,7 @@ enum PreviewData {
         PortfolioApp(
             name: "Daily Nuggets",
             iconName: "app-icon",
-            description: "Track your daily wins and build a record of your progress.",
+            description: String(localized: "Capture your daily wins with minimal friction, maximum impact."),
             appStoreId: "6474...",
             isNew: true,
             isDevelopment: false

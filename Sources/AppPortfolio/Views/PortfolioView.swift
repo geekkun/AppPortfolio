@@ -28,7 +28,7 @@ public struct PortfolioView: View {
     public var body: some View {
         Group {
             if !currentApps.isEmpty {
-                Section("My Apps") {
+                Section {
                     ForEach(currentApps, id: \.id) { app in
                         Button {
                             onAppClick?(app.name)
@@ -41,11 +41,13 @@ public struct PortfolioView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                } header: {
+                    Text("My Apps", bundle: .module)
                 }
             }
             
             if !upcomingApps.isEmpty {
-                Section("Coming Soon") {
+                Section {
                     ForEach(upcomingApps) { app in
                         Button {
                             onAppClick?(app.name)
@@ -54,6 +56,8 @@ public struct PortfolioView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                } header: {
+                    Text("Coming Soon", bundle: .module)
                 }
             }
         }
@@ -65,6 +69,7 @@ public struct PortfolioView: View {
         PortfolioView(upcomingApps: [])
     }
     .listStyle(.insetGrouped)
+    .environment(\.locale, Locale(identifier: "ru-RU"))
 }
 
 #Preview("Portfolio - Full") {

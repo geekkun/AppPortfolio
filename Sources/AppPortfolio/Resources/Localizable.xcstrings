@@ -1,146 +1,196 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Battle your way through the freelance life in this card game.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пройдите путь фрилансера в этой карточной игре"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Battle your way through the freelance life in this card game." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пройдите путь фрилансера в этой карточной игре"
           }
         }
       }
     },
-    "Capture your daily wins with minimal friction, maximum impact.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Фиксируйте ежедневные достижения с минимальными усилиями, максимальным эффектом"
+    "Big Five for Life" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Большая Пятерка для Жизни"
           }
         }
       }
     },
-    "Clean up your contacts with smart filtering and batch operations.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Очистите контакты с помощью умной фильтрации и пакетных операций"
+    "Borsky Bridge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реверс Борский мост"
           }
         }
       }
     },
-    "Coming Soon": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Скоро"
+    "Capture your daily wins with minimal friction, maximum impact." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фиксируйте ежедневные достижения с минимальными усилиями, максимальным эффектом"
           }
         }
       }
     },
-    "Define and track your life's most important goals and aspirations.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Определяйте и отслеживайте самые важные цели и стремления в жизни"
+    "Cashbacker" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кэшбэкер"
           }
         }
       }
     },
-    "FEATURED": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ИЗБРАННОЕ"
+    "Clean up your contacts with smart filtering and batch operations." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистите контакты с помощью умной фильтрации и пакетных операций"
           }
         }
       }
     },
-    "IN DEV": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "В РАЗРАБОТКЕ"
+    "Coming Soon" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скоро"
           }
         }
       }
     },
-    "IN DEVELOPMENT": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "В РАЗРАБОТКЕ"
+    "Daily Nuggets" : {
+
+    },
+    "Define and track your life's most important goals and aspirations." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Определяйте и отслеживайте самые важные цели и стремления в жизни"
           }
         }
       }
     },
-    "My Apps": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Мои приложения"
+    "Domovoy" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Домовой"
           }
         }
       }
     },
-    "NEW": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "НОВОЕ"
+    "Freelance Wars" : {
+
+    },
+    "IN DEVELOPMENT" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В РАЗРАБОТКЕ"
           }
         }
       }
     },
-    "Real-time schedule for Borsky Bridge reversible lanes traffic.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Расписание реверсивного движения на Борском мосту в реальном времени"
+    "My Apps" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мои приложения"
           }
         }
       }
     },
-    "Smart home maintenance tracker for property owners and managers.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Умный трекер обслуживания дома для владельцев и управляющих недвижимостью"
+    "NEW" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НОВОЕ"
           }
         }
       }
     },
-    "Social party game that helps friends discover surprising connections.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Социальная игра для вечеринок, помогающая друзьям найти неожиданные связи"
+    "R U?" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЭТТЫ?"
           }
         }
       }
     },
-    "Track and maximize your bank card rewards across multiple banks.": {
-      "localizations": {
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Отслеживайте и максимизируйте бонусы банковских карт разных банков"
+    "Real-time schedule for Borsky Bridge reversible lanes traffic." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расписание реверсивного движения на Борском мосту в реальном времени"
+          }
+        }
+      }
+    },
+    "Smart home maintenance tracker for property owners and managers." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Умный трекер обслуживания дома для владельцев и управляющих недвижимостью"
+          }
+        }
+      }
+    },
+    "Social party game that helps friends discover surprising connections." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Социальная игра для вечеринок, помогающая друзьям найти неожиданные связи"
+          }
+        }
+      }
+    },
+    "Track and maximize your bank card rewards across multiple banks." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отслеживайте и максимизируйте бонусы банковских карт разных банков"
+          }
+        }
+      }
+    },
+    "Useless Contacts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бесполезные контакты"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

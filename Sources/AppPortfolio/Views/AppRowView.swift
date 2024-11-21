@@ -30,7 +30,7 @@ struct AppRowView: View {
             
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 4) {
-                    Text(app.name)
+                    Text(LocalizedStringKey(app.name), bundle: .module)
                         .font(.callout.weight(.medium))
                     
                     if app.isNew {
@@ -42,10 +42,10 @@ struct AppRowView: View {
                     }
                 }
                 
-                Text(app.description)
+                Text(LocalizedStringKey(app.description), bundle: .module)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
-                    .lineLimit(2)
+                    .lineLimit(3)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             
@@ -64,6 +64,7 @@ struct AppRowView: View {
         AppRowView(app: PreviewData.currentApps[0])
         AppRowView(app: PreviewData.currentApps[1])
     }
+    .environment(\.locale, Locale(identifier: "ru-RU"))
 }
 
 #Preview("App Row - Development") {

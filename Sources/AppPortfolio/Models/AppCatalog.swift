@@ -8,7 +8,7 @@
 public enum AppCatalog {
     public static let myApps: [PortfolioApp] = [
         PortfolioApp(
-            name: "Daily Nuggets",
+            name: String(localized:"Daily Nuggets"),
             iconName: "daily-nuggets",
             description: String(localized: "Capture your daily wins with minimal friction, maximum impact."),
             appStoreId: "6738213003",
@@ -16,23 +16,23 @@ public enum AppCatalog {
             isNew: true
         ),
         PortfolioApp(
-            name: "Big Five for Life",
+            name: String(localized:"Big Five for Life"),
             iconName: "big-five",
             description: String(localized: "Define and track your life's most important goals and aspirations."),
             appStoreId: "6737238180",
             bundleId: "com.alekskuznetsov.BigFiveForLifeApp",
-            isNew: true
+            isNew: false
         ),
         PortfolioApp(
-            name: "Cashbacker",
+            name: String(localized:"Cashbacker"),
             iconName: "cashbacker",
             description: String(localized: "Track and maximize your bank card rewards across multiple banks."),
             appStoreId: "6499032369",
             bundleId: "com.alekskuznetsov.cashback",
-            isNew: false
+            isNew: true
         ),
         PortfolioApp(
-            name: "Useless Contacts",
+            name: String(localized:"Useless Contacts"),
             iconName: "useless-contacts",
             description: String(localized: "Clean up your contacts with smart filtering and batch operations."),
             appStoreId: "6737058251",
@@ -40,7 +40,7 @@ public enum AppCatalog {
             isNew: false
         ),
         PortfolioApp(
-            name: "Borsky Bridge",
+            name: String(localized:"Borsky Bridge"),
             iconName: "borsky-bridge",
             description: String(localized: "Real-time schedule for Borsky Bridge reversible lanes traffic."),
             appStoreId: "6736940685",
@@ -51,21 +51,21 @@ public enum AppCatalog {
     
     public static let upcomingApps: [PortfolioApp] = [
         PortfolioApp(
-            name: "Domovoy",
+            name: String(localized:"Domovoy"),
             iconName: "domovoy",
             description: String(localized: "Smart home maintenance tracker for property owners and managers."),
             appStoreId: nil,
             isDevelopment: true
         ),
         PortfolioApp(
-            name: "R U?",
+            name: String(localized:"R U?"),
             iconName: "ru-game",
             description: String(localized: "Social party game that helps friends discover surprising connections."),
             appStoreId: nil,
             isDevelopment: true
         ),
         PortfolioApp(
-            name: "Freelance Wars",
+            name: String(localized:"Freelance Wars"),
             iconName: "freelance-wars",
             description: String(localized: "Battle your way through the freelance life in this card game."),
             appStoreId: nil,

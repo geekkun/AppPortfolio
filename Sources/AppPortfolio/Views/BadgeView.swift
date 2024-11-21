@@ -12,7 +12,7 @@ struct Badge: View {
     let color: Color
     
     var body: some View {
-        Text(text)
+        Text(text, bundle: .module)
             .font(.caption2.weight(.heavy))
             .padding(.horizontal, 4)
             .padding(.vertical, 2)
