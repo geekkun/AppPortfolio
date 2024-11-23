@@ -37,7 +37,7 @@ public final class Analytics {
         return components.url
     }
     
-    static func logAppClick(appName clickedAppName: String) {
+    public static func logAppClick(appName clickedAppName: String) {
         guard config != nil else { return }
         
         // App info

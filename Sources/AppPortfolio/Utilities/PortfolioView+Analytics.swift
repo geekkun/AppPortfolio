@@ -6,7 +6,7 @@
 //
 
 extension PortfolioView {
-    static func handleAppClick(_ appName: String) {
+    public static func handleAppClick(_ appName: String) {
         Analytics.logAppClick(appName: appName)
     }
 }
