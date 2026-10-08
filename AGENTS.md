@@ -8,22 +8,16 @@
 
 - Commit messages: `type: short description` (feat, fix, refactor, docs, ci, chore)
 - Branch naming: `type/short-description` or `phase-N-description`
-- Squash merge to main
+- Squash merge to the default branch and keep GitHub's commit list in the message (the version's PATCH counts it). A repo that already uses merge commits keeps them.
 - **Push after EVERY commit. No exceptions.** Sessions can be interrupted — unpushed work is permanently lost.
 - **Commit after each meaningful unit of work**, not after all tasks are done. Never accumulate more than ~30 minutes of uncommitted work.
 - A "meaningful unit" = one logical change that doesn't break the build. Exception: files that must change together go in one commit.
-- **NEVER merge PRs** — only the user merges.
-- **Merge-as-you-go: one PR at a time.** Branch each phase from up-to-date `main`; when it's done and CI is green, hand it to the user to merge, then branch the next phase from updated `main`. **Never stack PRs** — don't branch a phase off an unmerged phase branch (it chains the PRs, pollutes each diff with the previous phase, and forces rebase cascades). If work must continue before a merge, keep it on one evolving branch/PR, not a stack.
+- **Merge your own PRs** once review findings are fixed and CI is green. If a merge deploys, take the backup the project's CLAUDE.md asks for first. Stop and hand over only when a PR needs something only the owner can do (a BotFather setting, a secret, a payment), or when the project's CLAUDE.md says otherwise.
+- **Merge-as-you-go: one PR at a time.** Branch each phase from up-to-date `main`; when it's done and CI is green, merge it, then branch the next phase from the updated default branch. **Never stack PRs** — don't branch a phase off an unmerged phase branch (it chains the PRs, pollutes each diff with the previous phase, and forces rebase cascades). If work must continue before a merge, keep it on one evolving branch/PR, not a stack.
 - **NEVER force-push** or amend published commits unless explicitly asked.
 - **No destructive git.** Never run commands that discard uncommitted changes (`reset`, `checkout .`, `clean`, `restore .`, `stash drop/clear`, etc.). Add on top of staged files — don't nuke the index. When in doubt, ask.
-- **No destructive shell commands without confirmation.** Never run `rm -rf`, `rm -r`, overwrite files, kill processes, drop databases, or similar destructive operations without asking first. If the user approved once, that does not mean blanket approval — ask each time.
-- **Avoid chained bash commands and subshells** (`cmd1 && cmd2`, `(cmd1; cmd2)`) when possible. Use separate tool calls instead. Chained commands trigger security warnings that stall the workflow and cause approval fatigue.
-
-## Git Stash — Commit First
-
-- **NEVER stash to do a rebase.** Commit first (even WIP), rebase, then continue.
-- **NEVER use multiple stashes.** Multiple `git stash`/`git stash pop` loses track. One stash max.
-- Preferred flow: commit WIP → fetch → rebase → resolve → continue working.
+- **Ask before destroying what you didn't create:** `rm -rf` outside your own scratch or build files, killing processes you didn't start, dropping databases, anything on a production box beyond the project's documented deploy steps. Approval for one such action doesn't cover the next.
+- **Commit instead of stashing.** Never stash to rebase: commit WIP, fetch, rebase, continue. At most one stash ever.
 
 ## Working Style
 
@@ -32,18 +26,17 @@
 - When giving commands, consolidate into as few copy-paste blocks as possible.
 
 ### Planning First
-- Start complex tasks in plan mode. Think through the approach before writing code.
-- When something goes sideways, stop and re-plan — don't push a broken approach.
+- Plan complex work before writing code: a spec, then a plan, both committed. When something goes sideways, stop and re-plan instead of pushing a broken approach.
 
 ### Use Subagents
-- Use subagents for parallel independent work (searching, reading files).
-- When asked to "use subagents" — throw more compute at the problem.
+- Use subagents for parallel independent work (searching, reading files, implement + review).
+- **At most 2–4 agents at once.** One implementer and one reviewer is the default pairing. Never run two agents that edit the same file. The owner watches a token budget, and a fan-out of a dozen agents is a failure even when the code is right.
 
 ### After Every Correction
 - When the user corrects a mistake, update the relevant CLAUDE.md so it doesn't recur.
 
 ### Persist Intermediate Work
-- **Plans and designs** → `docs/plans/YYYY-MM-DD-<topic>.md` (committed to repo)
+- **Specs and plans** → `docs/superpowers/specs/` and `docs/superpowers/plans/`, `YYYY-MM-DD-<topic>.md`, committed (where the superpowers skills write them)
 - **Ephemeral agent thinking** (reviews, brainstorming, session state) → `tmp/` (gitignored)
 - Context compression destroys conversation history; persisted files survive.
 - Big ideas and improvements that won't be done now → create GitHub issues so they're not forgotten.
@@ -55,7 +48,6 @@
 ### Multi-Persona Reviews
 - For major changes, run multiple agent perspectives (code reviewer, SRE, end-user, product) to find blind spots.
 - Save each persona's output to `tmp/` or `docs/reviews/`, then synthesize into actionable items.
-- Post review findings as individual GH comments on PRs (one issue = one comment).
 
 ## Versioning
 
@@ -74,7 +66,7 @@ No changelog section in `CLAUDE.md`. **Each PR adds one file `docs/changes/YYYY-
 ## Code Review
 
 - **One issue = one GH comment.** Never group multiple issues into one comment.
-- **Post all issues found**, regardless of confidence. Let the reviewer decide.
+- **Post every finding you verified.** Post an unverified one too, labelled as unverified, instead of dropping it. Don't pad a review with style nits the linter already covers.
 
 ## Code Quality
 
@@ -92,10 +84,8 @@ No changelog section in `CLAUDE.md`. **Each PR adds one file `docs/changes/YYYY-
 
 ## Docker
 
-- All projects use base images from the meta-repo where applicable
-- Project Dockerfiles inherit from `ghcr.io/geekkun/{lang}-base:latest`
-- Project-specific deps installed on top of base layer
-- Multi-stage builds for production images
+- Build from the official slim images (`python:3.13-slim` / `python:3.14-slim`), multi-stage for production. Every current project does this. The meta-repo's `docker/*-base` images exist but nothing uses them.
+- Everything runs in Docker: tests, lockfile regeneration, one-off scripts.
 
 ## CI/CD
 
@@ -103,7 +93,7 @@ No changelog section in `CLAUDE.md`. **Each PR adds one file `docs/changes/YYYY-
 - Shared workflow templates in `shared/.github/workflows/`
 - **CI (PR):** lint with ruff → Docker build (Buildx + GHA cache) → import verify → tests
 - **Deploy (push to main):** build + test → SSH to VPS → `git pull && docker compose up -d --build` → health check
-- `paths-ignore`: `*.md`, `docs/**`, `.claude/**`, `.gitignore`, `LICENSE` (and `tests/**` on deploy)
+- `paths-ignore`: `**/*.md`, `docs/**`, `.claude/**`, `.gitignore`, `LICENSE` (and `tests/**` on deploy). A bare `*.md` matches only the repo root, so a docs-only PR touching a package's `CLAUDE.md` still deploys.
 - Required GitHub Secrets for deploy: `VPS_SSH_KEY`, `VPS_HOST`, `VPS_USER`, `VPS_PORT`, `DEPLOY_PATH`
 - Django projects: add migration check (`makemigrations --check --dry-run`) to CI
 - Next.js projects: artifact-based deploy with PM2 process manager
