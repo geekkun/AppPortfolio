@@ -84,7 +84,7 @@ No changelog section in `CLAUDE.md`. **Each PR adds one file `docs/changes/YYYY-
 
 ## Docker
 
-- Build from the official slim images (`python:3.13-slim` / `python:3.14-slim`), multi-stage for production. Every current project does this. The meta-repo's `docker/*-base` images exist but nothing uses them.
+- Build from the official slim images (`python:3.13-slim` / `python:3.14-slim`), multi-stage for production.
 - Everything runs in Docker: tests, lockfile regeneration, one-off scripts.
 
 ## CI/CD
