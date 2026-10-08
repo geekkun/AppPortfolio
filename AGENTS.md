@@ -30,7 +30,7 @@
 
 ### Use Subagents
 - Use subagents for parallel independent work (searching, reading files, implement + review).
-- **At most 2–4 agents at once.** One implementer and one reviewer is the default pairing. Never run two agents that edit the same file. The owner watches a token budget, and a fan-out of a dozen agents is a failure even when the code is right.
+- **Size the fan-out to the work.** Mostly sequential work gets 2–3 agents, usually one implementer and one reviewer. Clearly distinct tasks can run 5–6 at once. Never more: 15 parallel agents on guest-bot burned a week's usage limit in about a day. Never run two agents that edit the same file. A project's CLAUDE.md or plan may set a lower cap.
 
 ### After Every Correction
 - When the user corrects a mistake, update the relevant CLAUDE.md so it doesn't recur.
