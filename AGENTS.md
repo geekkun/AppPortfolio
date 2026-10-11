@@ -49,6 +49,20 @@
 - For major changes, run multiple agent perspectives (code reviewer, SRE, end-user, product) to find blind spots.
 - Save each persona's output to `tmp/` or `docs/reviews/`, then synthesize into actionable items.
 
+## Report Back to Meta (two-way sync)
+
+Everything above the PROJECT section comes from the meta-repo (`geekkun/meta`); it is only as good as what flows back. **Report upstream when you:**
+- **deviate** from a meta rule in this repo (e.g. a different deploy flow, a skipped CI step);
+- **find a rule wrong, outdated or missing** (a gotcha that bit you, a cost you paid);
+- **adopt new tech or a pattern** another repo could reuse (a library, a CI trick, a Docker/Caddy setup, a test approach).
+
+**How:** one issue per item, in the same session, without waiting to be asked:
+`gh issue create -R geekkun/meta --label upstream --title "<repo>: <one line>" --body "<what> / <why — the bug, cost or owner's call> / <where — file + PR link> / <proposal: shared or which layer, or project-only>"`.
+- Every item needs a **reason**. "We prefer X" with no cost or bug behind it stays project-only and is not filed.
+- A deviation also goes in this repo's PROJECT section as `**Deviates from meta:** <rule> — <reason> (meta#N)`, so sync never "fixes" it back and the audit can find it.
+- Never edit the synced sections above PROJECT in this repo: the next sync overwrites them. Change the rule in meta, or record the deviation.
+- No `gh` or no network (cloud sandbox, offline): append the same fields to `docs/meta-feedback.md` and commit it; the meta audit collects it.
+
 ## Versioning
 
 **The version is computed from git, never typed in. No agent bumps anything, so parallel PRs never conflict over it.**
